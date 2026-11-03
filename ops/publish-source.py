@@ -89,6 +89,7 @@ def main():
         if git('ls-remote', 'origin', 'refs/heads/main').split()[0] != commit:
             raise RuntimeError('Remote verification failed')
         result['pushed'] = True
+    (ROOT / '.tmp').mkdir(mode=0o700, exist_ok=True)
     (ROOT / '.tmp/github-source-result.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result))
 
