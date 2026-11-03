@@ -1,0 +1,2 @@
+CREATE TABLE execution_swap_preflights(id uuid PRIMARY KEY,correlation_id uuid NOT NULL,source_class text NOT NULL CHECK(source_class IN ('LIVE_CHAIN_RPC','REPLAY_TEST')),intent_hash text NOT NULL,wire_hash text NOT NULL,result jsonb NOT NULL,created_at timestamptz NOT NULL DEFAULT clock_timestamp());
+CREATE TRIGGER immutable_swap_preflight BEFORE UPDATE OR DELETE ON execution_swap_preflights FOR EACH ROW EXECUTE FUNCTION deny_audit_mutation();

@@ -1,0 +1,11 @@
+/** Ephemeral authority for non-chain regression only. No key is exported, provisioned or persisted. */
+import {generateKeyPairSync,sign,randomUUID} from 'node:crypto';
+import {keyString} from '../../packages/connectors/src/pool-security.js';
+import {signingMandate,guardPermit,signingCertificateMessage,type Certificate,type GuardPermit} from '../../packages/execution/src/signing-policy.js';
+import {hash,intentSchema,HARNESS_GENESIS,type ExecutionIntent} from '../../packages/execution/src/verifier.js';
+export function harnessSigningAuthority(input:ExecutionIntent,limits:{maxOrders?:number;maxTotalFees?:string;spendCap?:string;maxFeePerOrder?:string}={}){
+ const intent=intentSchema.parse(input),s=intent.instructions[0];if(intent.mode!=='HARNESS'||intent.genesis!==HARNESS_GENESIS||s?.kind!=='JUPITER_CPMM_SWAP')throw new Error('HARNESS_AUTHORITY_ONLY');
+ const owner=generateKeyPairSync('ed25519'),governor=generateKeyPairSync('ed25519'),pub=(key:typeof owner.publicKey)=>keyString(key.export({format:'der',type:'spki'}).subarray(-32)),now=Date.now();
+ const payload=signingMandate.parse({id:randomUUID(),mode:'HARNESS',genesis:HARNESS_GENESIS,payer:intent.payer,policyHash:intent.policyHash,issuedAt:now,expiresAt:now+300000,maxOrders:limits.maxOrders??10,maxFeePerOrder:limits.maxFeePerOrder??'10',maxTotalFees:limits.maxTotalFees??'100',spendCaps:{[s.mint]:limits.spendCap??'1000',[s.outputMint]:limits.spendCap??'1000'},pool:s.pool,source:s.source,destination:s.destination,inputMint:s.mint,outputMint:s.outputMint});
+ return {authorities:{owner:pub(owner.publicKey),governor:pub(governor.publicKey)},mandate:{payload,signature:sign(null,signingCertificateMessage('MANDATE',payload),owner.privateKey).toString('base64')},permit(input:ExecutionIntent,ttlMs=30000):Certificate<GuardPermit>{const i=intentSchema.parse(input),at=Date.now(),p=guardPermit.parse({requestId:i.id,correlationId:i.correlationId,intentHash:hash(JSON.stringify(i)),quoteHash:i.quoteHash,policyHash:i.policyHash,side:i.instructions[0]?.kind==='JUPITER_CPMM_SWAP'&&i.instructions[0].source===s.source?'ENTRY':'PROTECTIVE_EXIT',approvedAt:at,expiresAt:Math.min(Date.parse(i.expiresAt),payload.expiresAt,at+ttlMs),decision:'ALLOW'});return {payload:p,signature:sign(null,signingCertificateMessage('GUARD',p),governor.privateKey).toString('base64')};}};
+}

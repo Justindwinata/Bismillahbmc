@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:15.19-bookworm
+    environment:
+      POSTGRES_USER: sentinel
+      POSTGRES_DB: sentinel_dev
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a local database password outside Git}
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["sentinel_pg:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sentinel -d sentinel_dev"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  sentinel_pg:

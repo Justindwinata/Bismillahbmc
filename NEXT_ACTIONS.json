@@ -1,0 +1,52 @@
+{
+  "release": "IN_PROGRESS_NOT_LIVE_VERIFIED",
+  "baseline": "e8e17dcbf569f8342df85ac11c001fca6425bdee",
+  "currentSlice": "Independent worker service recovery and bounded latest-market reads",
+  "status": "FULL_224_TESTS_PASS_RELEASE_NOT_QUALIFIED",
+  "evidence": "evidence/worker-isolation-final-rerun/commands.json",
+  "nextCodeAction": "Complete production signing service/provider and activation wiring plus MAINNET durable lifecycle/LIVE ledger; add required ATA/WSOL/rent support, then semantic copy eligibility through shared Guard. Current signing protocol remains HARNESS-only.",
+  "nextCommand": "TEST_DATABASE_URL=postgresql://sentinel_test@127.0.0.1:55439/sentinel_r0 TEST_EXECUTION_DATABASE_URL=postgresql://sentinel_test@127.0.0.1:55439/sentinel_execution_test pnpm test:coverage:integration",
+  "humanOnly": [
+    "Independent executable/source review before any real revision record",
+    "Manual actual Phantom device connection qualification",
+    "Separate bounded MICRO_LIVE and CAPPED_AUTO mandates after software/security/duration qualification"
+  ],
+  "mainnetSigning": "DISABLED",
+  "realProviderPositiveCycle": "NOT_OBSERVED",
+  "runtimeEvidence": "evidence/worker-isolation/owner-readiness.json",
+  "checkpointResolution": "git rev-parse HEAD and post-commit audit export manifest",
+  "browserStatus": "Full46/46 PASS; worker-isolation-browser/playwright-results.json; owner loaded-data8 read-only navigation PASS",
+  "remaining": [
+    {
+      "category": "CODE",
+      "dependency": "Independent proof + existing Guard/order core",
+      "action": "Disabled production signer interface, signed attempt persistence, unknown outcome reconciliation and LIVE ledger authority; required ATA/WSOL/rent scope"
+    },
+    {
+      "category": "CODE",
+      "dependency": "Finalized semantic receipts + market security",
+      "action": "Complete CPI/multi-hop/native copy attribution and independent eligibility through shared Guard"
+    },
+    {
+      "category": "CODE",
+      "dependency": "Point-in-time dataset + operational topology",
+      "action": "OOS/walk-forward and production security/load/quotas/alerts/supervision qualification"
+    },
+    {
+      "category": "ENVIRONMENT",
+      "dependency": "Local validator or equivalent chain environment",
+      "action": "Execute chain-level integration; current native validator absent/Docker daemon unavailable"
+    },
+    {
+      "category": "OWNER",
+      "dependency": "All required software gates first",
+      "action": "Real Phantom device, independent executable review, dedicated signer provisioning, later separately bounded MICRO_LIVE/CAPPED_AUTO"
+    },
+    {
+      "category": "TIME_BASED",
+      "dependency": "Continuous healthy samples under stable source/provider criteria",
+      "action": "Collect actual24h SHADOW/seven-day observation; existing gaps do not qualify"
+    }
+  ],
+  "supervisionEvidence": "evidence/worker-isolation-final-faults/supervisor-result.json"
+}

@@ -1,0 +1,2 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({testDir:'./e2e',fullyParallel:false,workers:1,timeout:45000,expect:{timeout:15000},reporter:[['list'],['json',{outputFile:process.env.PLAYWRIGHT_REPORT ?? 'evidence/R4/R3.1/playwright-results.json'}]],use:{baseURL:process.env.PLAYWRIGHT_BASE_URL??'http://localhost:3000',trace:'off'},projects:[{name:'desktop',use:{viewport:{width:1440,height:900}}},{name:'mobile',use:{viewport:{width:390,height:844}}}]});

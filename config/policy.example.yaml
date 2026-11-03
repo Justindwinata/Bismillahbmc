@@ -1,0 +1,48 @@
+# Example template; deliberately NOT a live trading permission.
+version: '1'
+mode: OBSERVE
+network: solana-mainnet
+live_trading_enabled: false
+signer_enabled: false
+owner_activation_id: null
+risk:
+  # Every monetary cap starts ZERO. No live action until reviewed and set by owner.
+  max_total_exposure_lamports: '0'
+  max_new_position_lamports: '0'
+  max_open_positions: 0
+  max_new_trades_per_hour: 0
+  max_daily_loss_lamports: '0'
+  max_fees_per_day_lamports: '0'
+  min_gas_reserve_lamports: null # must be verified against real fee/rent needs
+  max_price_impact_bps: null
+  max_slippage_bps: null
+  min_liquidity_usd: null
+  quote_max_age_ms: null
+  source_max_age_ms: null
+  cooldown_seconds: null
+  require_security_check: true
+  fail_closed_on_provider_loss: true
+  halt_on_balance_discrepancy: true
+  prohibit_auto_withdrawal: true
+  allow_unverified_token_extensions: false
+  exit_only_when_halted: false # change only through reviewed policy
+copy_trade:
+  enabled: false
+  monitored_wallet_addresses: []
+  max_observed_trade_lag_ms: null
+  max_quote_drift_bps: null
+  skip_self_trades: true
+  require_independent_entry_signal: true
+llm:
+  enabled: false
+  max_calls_per_hour: 0
+  max_spend_usd_per_day: '0'
+  on_error: SKIP
+execution:
+  allowed_program_ids: []
+  allowed_input_mints: []
+  allowed_output_mints: []
+  allowed_trading_wallet_addresses: []
+  withdrawal_whitelist_addresses: []
+  never_sign_arbitrary_serialized_tx: true
+  max_signatures_per_intent: 1

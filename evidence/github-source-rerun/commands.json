@@ -1,0 +1,39 @@
+[
+  {
+    "command": [
+      "pnpm",
+      "install",
+      "--frozen-lockfile"
+    ],
+    "startedAt": "2026-11-03T14:36:39.728Z",
+    "endedAt": "2026-11-03T14:36:39.865Z",
+    "exitCode": 0,
+    "beforeSourceIdentity": "2471404dbb451a50183f57af58c3aca75ad17efcadff84d779bac3665b142865",
+    "afterSourceIdentity": "2471404dbb451a50183f57af58c3aca75ad17efcadff84d779bac3665b142865",
+    "log": "evidence/github-source-rerun/frozen-install.txt"
+  },
+  {
+    "command": [
+      "pnpm",
+      "check"
+    ],
+    "startedAt": "2026-11-03T14:36:39.866Z",
+    "endedAt": "2026-11-03T14:37:03.702Z",
+    "exitCode": 0,
+    "beforeSourceIdentity": "2471404dbb451a50183f57af58c3aca75ad17efcadff84d779bac3665b142865",
+    "afterSourceIdentity": "2471404dbb451a50183f57af58c3aca75ad17efcadff84d779bac3665b142865",
+    "log": "evidence/github-source-rerun/check.txt"
+  },
+  {
+    "command": [
+      "pnpm",
+      "test:coverage:integration"
+    ],
+    "startedAt": "2026-11-03T14:37:03.702Z",
+    "endedAt": "2026-11-03T14:37:27.891Z",
+    "exitCode": 0,
+    "beforeSourceIdentity": "2471404dbb451a50183f57af58c3aca75ad17efcadff84d779bac3665b142865",
+    "afterSourceIdentity": "2471404dbb451a50183f57af58c3aca75ad17efcadff84d779bac3665b142865",
+    "log": "evidence/github-source-rerun/integration.txt"
+  }
+]

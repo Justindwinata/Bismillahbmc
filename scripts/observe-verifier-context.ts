@@ -1,0 +1,10 @@
+/** Two read-only RPC calls; fixed deliberately invalid-for-mainnet blockhash. */
+import {randomUUID} from 'node:crypto';
+import {WalletReadRpc} from '../packages/connectors/src/wallet.js';
+import {keyString} from '../packages/connectors/src/pool-security.js';
+import {harnessTransfer} from '../packages/execution/src/harness-wire.js';
+import {HARNESS_BLOCKHASH,hash,type ExecutionIntent} from '../packages/execution/src/verifier.js';
+import {MAINNET_GENESIS,loadMainnetVerificationContext} from '../packages/execution/src/rpc-context.js';
+const endpoint=process.env.SOLANA_RPC_HTTP_URL;if(!endpoint)throw new Error('READ_RPC_REQUIRED');const rpc=new WalletReadRpc(endpoint),receipts:unknown[]=[];const observer={read:async(method:Parameters<WalletReadRpc['read']>[0],params:unknown[]=[])=>{if(!['getGenesisHash','isBlockhashValid'].includes(method))throw new Error('OBSERVATION_CALL_CAP');const result=await rpc.read(method,params);receipts.push({method,receivedAt:new Date().toISOString(),hash:hash(JSON.stringify(result)),result});return result;}};
+const payer=keyString(Buffer.alloc(32,2)),destination=keyString(Buffer.alloc(32,3)),clock=Date.now();const intent:ExecutionIntent={id:randomUUID(),correlationId:randomUUID(),mode:'MAINNET',genesis:MAINNET_GENESIS,payer,blockhash:HARNESS_BLOCKHASH,policyHash:'a'.repeat(64),quoteHash:'b'.repeat(64),observedAt:new Date(clock).toISOString(),expiresAt:new Date(clock+30000).toISOString(),maxSpend:'100',maxFee:'10',instructions:[{kind:'SOL_TRANSFER',destination,amount:'100'}]};
+try{await loadMainnetVerificationContext(harnessTransfer(payer,destination,100n),intent,observer,0);throw new Error('UNEXPECTED_CONTEXT_ACCEPTANCE');}catch(error){const reason=error instanceof Error&&/^[A-Z_]+$/.test(error.message)?error.message:'RPC_UNAVAILABLE';process.stdout.write(JSON.stringify({observation:'READ_ONLY_MAINNET_NEGATIVE_CASE',sourceClass:'LIVE_CHAIN_RPC_OBSERVATION_NOT_TRANSACTION',observedAt:new Date().toISOString(),status:reason==='BLOCKHASH_INVALID'?'EXPECTED_VETO':'PROVIDER_OR_CAPABILITY_BLOCKED',reason,receipts,signing:false,submission:false})+'\n');}

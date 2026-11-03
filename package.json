@@ -1,0 +1,51 @@
+{
+  "name": "solana-sentinel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=22.23.2 <23"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter ./apps/* dev",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit && pnpm --filter @sentinel/web typecheck",
+    "build": "node scripts/build.mjs && pnpm --filter @sentinel/web build",
+    "test": "vitest run --exclude tests/database.test.ts",
+    "test:integration": "vitest run tests/database.test.ts",
+    "test:coverage": "vitest run --config vitest.packages.config.ts --coverage --exclude tests/database.test.ts",
+    "check:config": "tsx --env-file-if-exists=.env scripts/check-config.ts",
+    "check:secrets": "python3 scripts/secret-scan.py",
+    "check": "pnpm lint && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm check:config && pnpm check:secrets",
+    "db:migrate": "tsx --env-file-if-exists=.env scripts/migrate.ts",
+    "smoke:readonly": "tsx --env-file-if-exists=.env scripts/smoke.ts",
+    "ops:health": "tsx --env-file-if-exists=.env scripts/health.ts",
+    "observe:once": "tsx --env-file-if-exists=.env scripts/observe-once.ts",
+    "test:e2e": "playwright test",
+    "dev:local": "tsx --env-file-if-exists=.env scripts/dev-local.ts",
+    "test:coverage:integration": "vitest run --config vitest.packages.config.ts --coverage",
+    "ops:backup": "tsx scripts/backup.ts backup",
+    "ops:restore": "tsx scripts/backup.ts restore",
+    "dev:supervised": "tsx --env-file-if-exists=.env scripts/supervisor.ts"
+  },
+  "dependencies": {
+    "fastify": "5.12.7",
+    "pg": "8.23.1",
+    "zod": "4.6.7",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3",
+    "tsx": "4.23.15",
+    "vitest": "5.0.5",
+    "@vitest/coverage-v8": "5.0.5",
+    "eslint": "10.14.0",
+    "@eslint/js": "10.0.1",
+    "typescript-eslint": "8.72.1",
+    "@types/node": "22.20.5",
+    "@types/pg": "8.23.1",
+    "fast-check": "4.10.2",
+    "@playwright/test": "1.64.1"
+  }
+}

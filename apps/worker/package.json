@@ -1,0 +1,15 @@
+{
+  "name": "@sentinel/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx --env-file-if-exists=../../.env src/main.ts"
+  },
+  "dependencies": {
+    "@sentinel/domain": "workspace:*",
+    "@sentinel/storage": "workspace:*",
+    "@sentinel/connectors": "workspace:*",
+    "@sentinel/engine": "workspace:*"
+  }
+}

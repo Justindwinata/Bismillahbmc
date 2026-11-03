@@ -1,0 +1,22 @@
+# Critical path checkpoint — 1 November 2026
+
+Release: **IN_PROGRESS / NOT_LIVE_VERIFIED**. Baseline verified: `10f5dd0c3cf180462b3da51b4b398184cb1664da`. Current checkpoint SHA is the Git commit containing this file (and the post-commit export manifest).
+
+| Gate | Actual delivery | Status / remaining acceptance |
+|---|---|---|
+| Baseline | Existing source retained; baseline quality/PostgreSQL rerun logs in evidence/CP1 | Tested; initial failures retained alongside corrected runs |
+| CP1 pool/LP/holders | Same-finalized-slot Raydium CPMM raw layout, known program/authority, ProgramData revision, vault ownership/control/backing, mint/config/fee/status, principal reserves, non-redeemable LP supply bound; conservative partial-holder owner upper bound | Implemented/tested supported slice. Other venues, lockers, Token-2022 unsupported => UNKNOWN/VETO. This is no universal rug-free assertion. |
+| CP1 entry/exit | Entry veto preserved; existing-inventory exit independently requires fresh transfer/pool/route/quantity evidence; LP/holder/entry-liquidity downgrade can trigger exit; freeze/empty principal/stale quote => no fill + durable EXIT_UNAVAILABLE; HALT still blocks execution | Fixture unit/PostgreSQL/desktop/mobile tested; actual exitability not verified on chain |
+| CP2 worker/accounting | Direct quote bound to qualified pool hash; actual durable reservations checked at commit; fees included when resizing; owned-position jobs prioritized; stale market fallback retains original receipt time; persisted restart/BUY/SELL/equity trace | REPLAY_TEST positive path tested. Real-provider positive BUY+SELL **NOT_OBSERVED**; no fabricated live fill |
+| Real provider evidence | Raydium lists 100 real pools, 2 supported WSOL CPMM candidates screened; finalized slots 464116761–464116762; both UNKNOWN: POOL_UPGRADEABLE_REVISION_NOT_PINNED | NO_SAFE_ENTRY_OBSERVED, bounded ~1 second sample, not soak or market-wide evidence. Revision hash observed but never auto-approved |
+| CP3–CP5 | Existing wallet/copy/Phantom/metrics/backup retained | IN_PROGRESS: native/rent/CPI/copy qualification, complete portfolio, execution verifier/signer harness/order recovery, OOS validation, deployment and qualification remain software work |
+
+Commands/exit codes: `evidence/CP1/COMMANDS.json`. Actual raw results: delivery-quality.txt, delivery-integration.txt, browser-final.txt; screenshots and sanitized traces: browser/. PostgreSQL integration includes crash rollback, duplicate/idempotency, expired lease, reservation tampering, unavailable exit and protective exit. Provider read scripts: `scripts/observe-pool-security.ts`, `scripts/paper-observation-report.ts`. Worker report includes historical LIVE_PROVIDER sessions explicitly; first/last timestamps are not continuous uptime.
+
+Coverage from actual combined run: statements 92.55%, branches 90.11%, functions 96.25%, lines 98.11%. Engine index statements98.5%, branches96.36%, functions/lines100%; pool-security statements/functions/lines100%, branches97.98%. A new enforced95% pool-security threshold prevents regression; this does not replace broader integration and production qualification. No production-security/strategy claim follows from these tests.
+
+Blockers: **CODE** — wider venue/extension/locker qualification, capital flows/partial-exit lifecycle, remaining CP3–CP5 features and fault cases. **PROVIDER** — production RPC/quotas/fallback/SLA and longitudinal eligible market observations. **OWNER** — actual manual Phantom device connection and eventual bounded financial mandates; no user key requested. **TIME** — seven continuous days observation and 24h shadow NOT_RUN. Mutable CPMM program revision requires technical review and explicit pin; a discovered digest alone is not approval. Micro-live and capped-auto remain separately NOT_AUTHORIZED. Signer disabled and real caps remain zero.
+
+## CP2 follow-on checkpoint
+
+Fee-consumed SELL quotes now SKIP with EXIT_UNAVAILABLE_NET_PROCEEDS; no fill, inventory preserved, no executable equity mark. Full quality command and91 PostgreSQL/unit tests passed (exit0). Overall coverage: statements92.55%, branches90.12%, functions96.25%, lines98.11%; engine index branches96.39%, pool branches97.98%. Browser harness extends the persisted sequence with an unavailable-fee exit before protective SELL; see evidence/CP2 for final actual results and command manifest. This remains a fixture qualification, not a real-provider positive trade or full CP2 acceptance.

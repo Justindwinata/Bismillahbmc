@@ -1,0 +1,279 @@
+{
+  "version": 1,
+  "testedSourceIdentity": "2471404dbb451a50183f57af58c3aca75ad17efcadff84d779bac3665b142865",
+  "proofs": [
+    {
+      "id": "ACCOUNTING_AND_AUTONOMOUS_PAPER",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "Integer capital/rent/FIFO and partial-exit accounting; worker recovery and virtual budgets"
+      ],
+      "missingScopes": [
+        "Qualified real-provider positive entry/exit under complete security evidence; production stress qualification"
+      ],
+      "sources": {
+        "packages/storage/src/research.ts": "11241d992c40d7aae3eebab8fdd15531f67d0867fef98d05d1cabe4b386a11d7",
+        "packages/accounting/src/paper.ts": "fbda8bdf0210997365787a100c120c5fac759c97a63da659dcf9bfbe8f36a760",
+        "apps/worker/src/paper-cycle.ts": "e430be7a225417dd659ea382bbbf4246443c53ae2bfe76e5e0c4961cf268584d"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "MARKET_SECURITY_QUALIFIED",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "Bounded CPMM pool/vault/mint/holder evidence and revision-bound review registry; fail-closed negatives"
+      ],
+      "missingScopes": [
+        "Independent actual executable revision review; wider venue/token scope qualification"
+      ],
+      "sources": {
+        "packages/connectors/src/pool-security.ts": "28b68a3b87e0d8387de224178659557893281a31ea972178e55e7c6b914a69d1",
+        "packages/connectors/src/security.ts": "2a62452139489a12a1020d0c22a23d0dc58e7550876c7214d279ae21d8d67a6c",
+        "packages/storage/src/program-reviews.ts": "44d7e4b2f089f0c0bc77d2e55dc61908250afe2a3916b408ad1e847a0629715e"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "ELEVEN_ROLE_E2E",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "Eleven deterministic role modules, typed veto and persisted replay trace; harness order correlation"
+      ],
+      "missingScopes": [
+        "Qualified full real-provider swap path and receipt/ledger integration"
+      ],
+      "sources": {
+        "packages/engine/src/index.ts": "94093d42af8300aef5d03f2ae3f7c4b0d3a0c913f996673e9ca8f0b146bcd4b9",
+        "apps/worker/src/execution-cycle.ts": "e1cf9085afffe5dec56c462d0ca9596402728650091cc7e5b2d2f70e1371b952",
+        "packages/storage/src/execution.ts": "29d3425dd2f4f58680db0bc7c4aab1b8cc78b891fff150085ed37797307ca039"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "WALLET_COPY_PORTFOLIO",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "Nonce ownership harness, exact public SOL/SPL inventory, native account effects, receipt cursor CAS"
+      ],
+      "missingScopes": [
+        "Full CPI/multi-hop/rent attribution and independent copy eligibility; real portfolio valuation/reconciliation"
+      ],
+      "sources": {
+        "apps/api/src/wallet-routes.ts": "bc5a7535a0d3b14d7805a9a96fe2c7d70ae321b754d5a1da2cdfa15991534923",
+        "packages/connectors/src/portfolio.ts": "79a65520b18c422a039205ada36b6400e6ff92ad8e5c34cc33e612cb1c3cc9ea",
+        "packages/connectors/src/wallet.ts": "05c36d983d0e22d7417c4e3d9463e2dae18cc46c8953b26cf3827160af6fb56d",
+        "packages/connectors/src/wallet-effects.ts": "02fe5b444dc5f80ec5702091c9ff7ea4f8f1b7ae584aa169df843ede6da21541"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "PHANTOM_OWNER_DEVICE",
+      "status": "BLOCKED_OWNER",
+      "testedScopes": [
+        "Ephemeral identity harness only; not actual extension/mobile qualification"
+      ],
+      "missingScopes": [
+        "Owner performs real Phantom device rejection/expiry/account/network/disconnect qualification"
+      ],
+      "sources": {
+        "apps/web/app/wallet-panel.tsx": "03dd9741a7a4b419be0624592c43c430ebe346ecf2aace85ee8a1d995700395c",
+        "apps/api/src/wallet-proof.ts": "dad190ff8b3fa9e8c27cc1c826d2ba75818fda88f0dcf39a068efc5566b972d4"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "INDEPENDENT_VERIFIER_SIGNER_HARNESS",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "Legacy/v0 transfer and RouteV2 single-CP swap wire mutation/ALT tests; isolated policy-bound signer harness; detached mandate/Guard certificates, durable per-mint/fee/order budgets, signed-message dedupe and lookup-only signing recovery; binary swap RPC context, reviewed-code binding and read-only preflight API"
+      ],
+      "missingScopes": [
+        "Actual independently reviewed Jupiter/CP revisions and real RPC/receipt qualification; disabled live signer/order integration; ATA/wrap/close/multi-hop scope unsupported; production signer mandate"
+      ],
+      "sources": {
+        "packages/execution/src/verifier.ts": "ee7128ac8856e36ad76a922fbff8a7376fa87fae94ce698707bd42c3bbbfad44",
+        "packages/execution/src/rpc-context.ts": "6c5761764fba235e38025e5cf012e440b7785a24d1bfa12f400afb6470969118",
+        "packages/execution/src/signer-child.ts": "4a28ca6cf20de9ed271fbc2daf5e8af27b1a34fda54f02ba7afb4509b9735c4c",
+        "packages/execution/src/harness-signer.ts": "9c84b74ccc13a3b8fb2446b816b2e98cc71734ac9cb766769137262d89e049aa",
+        "packages/execution/src/signing-policy.ts": "a3039e855e9e4d6da929698635709fc6945381413cf04d430c90e97338a535bf",
+        "packages/execution/src/policy-signer.ts": "62f1df122b94888e4f8efbf3edc73d02700b3c9bd82004a13ac43bcd67e43354",
+        "packages/storage/src/signing.ts": "c955c2e01ec5ddfd450c50deb9910916fb9d80188a6db8ccf608d34eff3100a5",
+        "packages/execution/src/swap-verifier.ts": "462c164382f2940db7b09e6da0d64bfb70c8b4b113e8190e5c11e1121b92fa53",
+        "packages/execution/src/swap-builder.ts": "350d0f7196074a7a6df9733b618a61f28e9ac1c258aceb250e056a1041e6ca7e",
+        "packages/execution/src/swap-context.ts": "33f600872d0393feb87060c6f3c907ec6105d3fe6feb72a81321f76a1b18bb8c",
+        "apps/api/src/swap-preflight.ts": "59bf67bf2b50a38d75ff629e4a75cfdb5f4cd6779abe52f45dac37f8fe08bd16",
+        "packages/storage/src/swap-preflight.ts": "c3305b2866f014a2a9fa840ec1babf2cd34b99ee7f686f035480e69a492506b2"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "DURABLE_EXECUTION_RECONCILIATION",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "HARNESS transfer and CP swap reservation/attempt/receipt/FIFO/equity; concurrency/crash/no blind resubmit and commit-bound Guard; signed mandate/Guard journal with HALT/revocation/commit fences and conservative independent budgets; independent finalized transfer observer; finalized single-CP signed-wire/CPI/native/token receipt observation with durable leased retry, dedupe and read-only API/audit/UI"
+      ],
+      "missingScopes": [
+        "Historical supported Jupiter receipt/proof qualification; complete disabled production signer/order lifecycle; new-account/ATA/wrap/close/rent scope; activation mandates"
+      ],
+      "sources": {
+        "packages/storage/src/execution.ts": "29d3425dd2f4f58680db0bc7c4aab1b8cc78b891fff150085ed37797307ca039",
+        "apps/worker/src/execution-cycle.ts": "e1cf9085afffe5dec56c462d0ca9596402728650091cc7e5b2d2f70e1371b952",
+        "packages/execution/src/model-transport.ts": "9aa1ede0d4b1b8fe22fc4bc563602225f3517a333b72bfcd20d4e7a72eb137db",
+        "packages/execution/src/chain-receipt.ts": "0747dea89750b41d610c5914a70027d8120288c2ce62b76c2aa204dd3e88a00b",
+        "packages/execution/src/swap-chain-receipt.ts": "4c27ac891881a2d5d4e10b9828689cfd791424743b69879ffd144419e2c54d5d",
+        "apps/worker/src/swap-receipt-cycle.ts": "d5aed2db817e7705987a0b305a528bb5b6d56b191e41c432f4481050ae679101",
+        "packages/storage/src/swap-preflight.ts": "c3305b2866f014a2a9fa840ec1babf2cd34b99ee7f686f035480e69a492506b2",
+        "ops/migrations/023_swap_receipt_observation.sql": "e52eb0fec98c0fda454a6fa271cbedffd181ab728f15e12a7cb86d5c4dac6896",
+        "ops/migrations/024_swap_receipt_requests.sql": "70b973491b76517669566bf3f9e0ec0cd483e90395eda1a49c231349f90adf44",
+        "packages/execution/src/swap-receipt.ts": "20cb69a9ef1a07c9e07443f936bd200c9df5b77e573c0b7ca0c39c3abb737583",
+        "packages/execution/src/swap-model.ts": "5fd9b1ae1a76105178a4481955ee4e9d2b009c56e247e4f8f0ef2aeca34a526b",
+        "apps/worker/src/swap-order.ts": "3561b5db06d7799f8304e762e004bfcd66f6a56b227569456e6373296f9022b4"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "STRATEGY_OOS_WALK_FORWARD",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "Fee-aware closed-trade metrics, sample uncertainty and full-session statistics"
+      ],
+      "missingScopes": [
+        "Point-in-time dataset, temporal holdout/walk-forward and qualified forward evidence; no strategy profitability claim"
+      ],
+      "sources": {
+        "packages/accounting/src/performance.ts": "235a901dd6ac10674a406b5918eb010fb35a1f75fc137369fb329503d756f8ec",
+        "packages/storage/src/research.ts": "11241d992c40d7aae3eebab8fdd15531f67d0867fef98d05d1cabe4b386a11d7"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "DEPLOYMENT_AND_RESTORE",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "Local independent processes; PostgreSQL-session singleton supervisor with tagged orphan-stack cleanup, bounded backoff and actual worker/leader/supervisor SIGKILL recovery; heartbeat/source identity; authenticated bounded-memory encrypted backup/restore, including V1 compatibility and pre-consumer tamper rejection"
+      ],
+      "missingScopes": [
+        "Production topology/TLS/least-privilege/supervision/alerts, current deployment restore and RTO/RPO qualification"
+      ],
+      "sources": {
+        "scripts/dev-local.ts": "05c66c6ec4027f31b6a585b99102013780398e1cf6e97ad2dd9909152d4cf01d",
+        "scripts/supervisor.ts": "deb11a8581521b6f538f6699d35aea494472c29ebbe9f4c1fcaeaf2cea3f9477",
+        "scripts/qualify-supervisor.ts": "d9779e17f11eb17341abfb38417e17ea80cc7e958c3cc0e65e2acccae94a5f55",
+        "scripts/backup.ts": "6a243fc8dd886ceab4483bbb6f8f75fd3c1909c6af832c801ab578f60d6e96b6",
+        "scripts/backup-crypto.ts": "c4e4790d2d64271a5643e2b398e4bef7ef6ab112170cc9bf6954911f3aa52181",
+        "scripts/backup-stream.ts": "ef6b0829a781b50899a9289d0590e3fe41053f208007ab0435e8b8331501d8e8",
+        "apps/worker/src/main.ts": "fce1b5fe4d4625243e432e42599cb11124043840f03d027eafab2d86e5def84e",
+        "scripts/source-identity.ts": "04a9cf410bb6562137354650b09432aa9dfef79e470a7a724018431c5c3f058c"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "INDEPENDENT_SECURITY_REVIEW",
+      "status": "NOT_RUN",
+      "testedScopes": [],
+      "missingScopes": [
+        "Independent security review of final full software scope before any financial activation"
+      ],
+      "sources": {
+        "packages/domain/src/index.ts": "93eb2f9e3c153576a6141297cd61d2cace7085297f3e2305cf29c20331db5df4",
+        "packages/domain/src/qualification.ts": "ff208babdf129d4ebec61876eba17dbb9ccff1310e836dd87308b994a10c4468"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "OBSERVATION_7D",
+      "status": "BLOCKED_TIME",
+      "testedScopes": [
+        "Actual immutable heartbeat/source-identity/provider sample collection has started"
+      ],
+      "missingScopes": [
+        "Seven actual continuous qualified observation days; span alone is insufficient"
+      ],
+      "sources": {
+        "apps/worker/src/main.ts": "fce1b5fe4d4625243e432e42599cb11124043840f03d027eafab2d86e5def84e",
+        "scripts/observation-report.ts": "bd801bf12b3afdb5d0343071d22d5c47e3bd4fc34b946c2e98ceb06f067fb0a0"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    },
+    {
+      "id": "SHADOW_24H",
+      "status": "PARTIAL",
+      "testedScopes": [
+        "Separate LIVE_PROVIDER SHADOW collection initialized; tested beyond10000 decisions with bounded chart and full-session streamed metrics; no real funds or fills"
+      ],
+      "missingScopes": [
+        "CODE: production retention/storage/quota and large-scale load qualification remain",
+        "TIME:24 actual qualified shadow hours with continuity, provider and decision evidence"
+      ],
+      "sources": {
+        "scripts/init-shadow-observation.ts": "8daa76c52fc2ba180ca31e90d2baad8437a21469bdf5f45bcc4cff9d57ea85d1",
+        "apps/worker/src/paper-cycle.ts": "e430be7a225417dd659ea382bbbf4246443c53ae2bfe76e5e0c4961cf268584d",
+        "scripts/observation-report.ts": "bd801bf12b3afdb5d0343071d22d5c47e3bd4fc34b946c2e98ceb06f067fb0a0",
+        "packages/storage/src/research.ts": "11241d992c40d7aae3eebab8fdd15531f67d0867fef98d05d1cabe4b386a11d7",
+        "packages/accounting/src/performance.ts": "235a901dd6ac10674a406b5918eb010fb35a1f75fc137369fb329503d756f8ec"
+      },
+      "artifacts": [
+        {
+          "path": "evidence/github-source-rerun/commands.json",
+          "sha256": "cc6345af6253f567d86fcae3659d876f695b08d13a7585d1188a83b4c2d6d10a"
+        }
+      ]
+    }
+  ]
+}

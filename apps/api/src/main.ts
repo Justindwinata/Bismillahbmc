@@ -1,0 +1,11 @@
+import {sourceIdentity} from '../../../scripts/source-identity.js';
+import { z } from 'zod';
+import { WalletReadRpc } from '../../../packages/connectors/src/wallet.js';
+import { validateBootstrap,databasePool } from '../../../scripts/runtime.js';
+import { Store } from '../../../packages/storage/src/index.js';
+import { createApi } from './server.js';
+validateBootstrap();
+const pool = databasePool();
+const app = createApi(new Store(pool),process.env.SERVICE_AUTH_TOKEN ?? '',process.env.OWNER_PASSWORD_HASH ? {store:new Store(pool),passwordHash:process.env.OWNER_PASSWORD_HASH,origin:process.env.WEB_ORIGIN ?? 'http://localhost:3000',rpcProvenance:'LIVE_CHAIN_RPC',runtimeIdentity:await sourceIdentity(),rpc:process.env.SOLANA_RPC_HTTP_URL?new WalletReadRpc(process.env.SOLANA_RPC_HTTP_URL):undefined} : undefined);
+await app.listen({host:'127.0.0.1',port:z.coerce.number().int().min(1024).max(65535).parse(process.env.API_PORT??4000)});
+for (const signal of ['SIGINT','SIGTERM'] as const) process.once(signal,() => {void app.close().then(() => pool.end());});

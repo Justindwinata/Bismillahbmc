@@ -1,0 +1,14 @@
+{
+  "name": "@sentinel/storage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "pg": "8.23.1",
+    "@sentinel/engine": "workspace:*",
+    "@sentinel/connectors": "workspace:*",
+    "@sentinel/accounting": "workspace:*",
+    "@sentinel/domain": "workspace:*",
+    "zod": "4.6.7"
+  }
+}

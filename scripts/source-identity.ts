@@ -1,0 +1,6 @@
+import {createHash} from 'node:crypto';
+import {readdir,readFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
+/** Hash code/config only, never environment, credentials, database or wallet material. */
+export async function sourceIdentity(root=fileURLToPath(new URL('../',import.meta.url))){const files:string[]=[];const walk=async(path:string)=>{for(const entry of await readdir(join(root,path),{withFileTypes:true})){if(['node_modules','dist','.git','.tmp'].includes(entry.name)||entry.name.startsWith('.next'))continue;const relative=path+'/'+entry.name;if(entry.isDirectory())await walk(relative);else if(entry.isFile()&&(entry.name==='package.json'||/\.(ts|tsx|js|mjs|sql|css)$/.test(entry.name))&&!entry.name.endsWith('.d.ts'))files.push(relative);}};for(const folder of ['apps','packages','scripts','ops/migrations'])await walk(folder);for(const extra of ['pnpm-lock.yaml','package.json','tsconfig.json','tsconfig.build.json','pnpm-workspace.yaml','config/policy.example.yaml'])try{await readFile(join(root,extra));files.push(extra);}catch{/* compiled distributions may omit lockfile */}const hash=createHash('sha256').update('node:'+process.versions.node+'\0');for(const file of files.sort())hash.update(file+'\0').update(await readFile(join(root,file))).update('\0');return hash.digest('hex');}
