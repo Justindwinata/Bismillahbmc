@@ -29,3 +29,10 @@ coverage-packages/
 
 *.sentinel.enc
 *.sentinel.enc.partial-*
+
+# Raw audit media stays local; publish compact attestations instead.
+evidence/**/*.zip
+evidence/**/*.png
+evidence/**/*.jpg
+evidence/**/*.jpeg
+evidence/**/*.webm
